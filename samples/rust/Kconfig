@@ -60,6 +60,16 @@ config SAMPLE_RUST_CHRDEV
 
 	  If unsure, say N.
 
+config SAMPLE_RUST_BLKDEV
+	tristate "Block device"
+	help
+	  This option builds the Rust character device sample.
+
+	  To compile this as a module, choose M here:
+	  the module will be called rust_chrdev.
+
+	  If unsure, say N.
+
 config SAMPLE_RUST_MISCDEV
 	tristate "Miscellaneous device"
 	help

@@ -8,6 +8,7 @@
 
 #include <kunit/test.h>
 #include <linux/amba/bus.h>
+#include <linux/blkdev.h>
 #include <linux/cdev.h>
 #include <linux/clk.h>
 #include <linux/errname.h>
@@ -37,7 +38,6 @@
 #include <linux/uaccess.h>
 #include <linux/uio.h>
 #include <uapi/linux/android/binder.h>
-#include <linux/blkdev.h>
 
 /* `bindgen` gets confused at certain things. */
 const gfp_t BINDINGS_GFP_KERNEL = GFP_KERNEL;
