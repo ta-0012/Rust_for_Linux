@@ -6,12 +6,13 @@
 //!
 //! C header: [`include/linux/blkdev.h`](../../../../include/linux/blkdev.h)
 
-/*
+
 use crate::bindings;
 use crate::error::{
     code::*,
 //    Error,
     Result};
+use crate::str::CStr;
 use crate::bindings::gendisk;
 
 struct Blkdev(*mut bindings::block_device);
@@ -39,5 +40,9 @@ impl Blkdev {
         Ok(())
     }
 }
-*/
+
+pub struct Registration {
+    name: &'static CStr,
+}
+
 
