@@ -17,6 +17,9 @@ use crate::error::{
     Result};
 // use crate::str::CStr;
 use crate::bindings::gendisk;
+use crate::bindings::dev_t;
+use bindings::__register_blkdev;
+
 
 struct Blkdev(*mut bindings::block_device);
 
@@ -44,26 +47,21 @@ impl Blkdev {
         Ok(())
     }
 }
-/*
-struct RegistrationInner<const N: usize> {
-    _dev: bindings::dev_t,
-    _used: usize,
-    _blkdevs: [Option<Blkdev>; N],
-    _pin: PhantomPinned,
+
+
+/// register(0,"mydev",probe);
+pub fn register(
+major: core::ffi::c_uint,
+name: *const core::ffi::c_char,
+probe: ::core::option::Option<unsafe extern "C" fn(devt: dev_t)>
+    ) -> Result {
+    /*
+    let mut blkdev = Blkdev::alloc()?;
+    // need: gendisk, partno
+    blkdev.add(blkdev, )
+    // need: self(Blkdev), dev_t
+    */
+    // try to call register function directly.
+    let _rs = unsafe { __register_blkdev(major,name,probe) };
+    Ok(())
 }
-
-pub struct Registration<const N: usize> {
-    _name: &'static CStr,
-    _minors_start: u16,
-    _this_module: &'static crate::ThisModule,
-    _inner: Option<RegistrationInner<N>>,
-}
-
-impl<const N: usize> Registration<{ N } > {
-    pub fn new () -> Result<u16> {
-        Ok(1_u16)
-    }
-}
-*/
-
-
