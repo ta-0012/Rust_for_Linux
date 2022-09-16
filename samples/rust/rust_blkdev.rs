@@ -3,6 +3,7 @@
 //! Rust block device sample.
 
 use kernel::prelude::*;
+use kernel::blkdev;
 
 module! {
     type: RustBlkdev,
@@ -13,12 +14,14 @@ module! {
 }
 
 struct RustBlkdev {
+//    _dev: blkdev::Blkdev,
 }
 
 
 impl kernel::Module for RustBlkdev {
     fn init(_name: &'static CStr, _module: &'static ThisModule) -> Result<Self> {
         pr_info!("Rust block device sample (init)\n");
+        pr_info!("name:{}\n", _name);
         Ok(RustBlkdev {})
     }
 }
