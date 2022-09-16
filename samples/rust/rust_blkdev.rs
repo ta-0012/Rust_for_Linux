@@ -26,7 +26,6 @@ impl kernel::Module for RustBlkdev {
     }
 }
 
-
 impl Drop for RustBlkdev {
     fn drop(&mut self) {
         pr_info!("Rust block device sample (exit)\n");

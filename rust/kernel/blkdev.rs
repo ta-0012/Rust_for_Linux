@@ -6,7 +6,7 @@
 //!
 //! C header: [`include/linux/blkdev.h`](../../../../include/linux/blkdev.h)
 
-
+/*
 use crate::bindings;
 use crate::error::{
     code::*,
@@ -39,3 +39,5 @@ impl Blkdev {
         Ok(())
     }
 }
+*/
+
