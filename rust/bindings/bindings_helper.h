@@ -8,6 +8,7 @@
 
 #include <kunit/test.h>
 #include <linux/amba/bus.h>
+#include <linux/blkdev.h>
 #include <linux/cdev.h>
 #include <linux/clk.h>
 #include <linux/errname.h>
